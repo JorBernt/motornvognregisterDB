@@ -12,38 +12,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-4">
-            <h2>Motorvognregister</h2>
-            <form class ="form">
-                <div class="form-group">
-                    <label for="personnummerInput">Eiers personnummer</label>
-                    <input type="text" class="form-control" id="personnummerInput">
-                </div>
-                <div class="form-group">
-                    <label for="navnInput">Eiers navn</label>
-                    <input type="text" class="form-control" id="navnInput">
-                </div>
-                <div class="form-group">
-                    <label for="adresseInput">Eiers adresse</label>
-                    <input type="text" class="form-control" id="adresseInput">
-                </div>
-                <div class="form-group">
-                    <label for="kjennetegnInput">Eiers Kjennetegn</label>
-                    <input type="text" class="form-control" id="kjennetegnInput">
-                </div>
-                <div class="form-group">
-                    <label for="merke">Merke</label>
-                    <select class="form-select" id="merke" aria-label="merke"onchange="oppdaterType(this.value)">
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="type">Type</label>
-                    <select class="form-select" id="type" aria-label="type">
-                    </select>
-                </div>
-            </form>
-            <button class="btn btn-primary" id="registrerKnapp">Registrer</button>
-        </div>
+
         <div class="col-md-8">
             <h3>Alle bilene</h3>
             <table id="alleBiler" class="table table-bordered table-striped">
@@ -58,6 +27,7 @@
                 </thead>
                 <tbody></tbody>
             </table>
+            <a class="btn btn-primary" href="registrerBil.html">Registrer</a>
             <button class="btn btn-danger" id="slettAlleKnapp">Slett alle</button>
         </div>
     </div>

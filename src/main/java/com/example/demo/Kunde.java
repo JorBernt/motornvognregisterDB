@@ -1,9 +1,13 @@
 package com.example.demo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Kunde {
+    private int id;
     private String personNr, navn, adresse, kjennetegn, bilmerke, biltype;
 
-    public Kunde(String personNr, String navn, String adresse, String kjennetegn,
+    public Kunde(int id, String personNr, String navn, String adresse, String kjennetegn,
                  String bilmerke, String biltype) {
         this.personNr = personNr;
         this.navn = navn;
@@ -15,6 +19,15 @@ public class Kunde {
 
     public Kunde() {}
 
+
+    public void setId(int id) {
+        this.id = id;
+
+    }
+
+    public int getId() {
+        return id;
+    }
 
     public String getPersonNr() {
         return personNr;

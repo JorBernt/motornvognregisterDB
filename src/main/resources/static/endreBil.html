@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Motorvognregister</h2>
+            <form class ="form">
+                <div class="form-group">
+                    <label for="personnummerInput">Eiers personnummer</label>
+                    <input type="text" class="form-control" id="personnummerInput">
+                </div>
+                <div class="form-group">
+                    <label for="navnInput">Eiers navn</label>
+                    <input type="text" class="form-control" id="navnInput">
+                </div>
+                <div class="form-group">
+                    <label for="adresseInput">Eiers adresse</label>
+                    <input type="text" class="form-control" id="adresseInput">
+                </div>
+                <div class="form-group">
+                    <label for="kjennetegnInput">Eiers Kjennetegn</label>
+                    <input type="text" class="form-control" id="kjennetegnInput">
+                </div>
+                <div class="form-group">
+                    <label for="merke">Merke</label>
+                    <select class="form-select" id="merke" aria-label="merke"onchange="oppdaterType(this.value)">
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="type">Type</label>
+                    <select class="form-select" id="type" aria-label="type">
+                    </select>
+                </div>
+            </form>
+            <button class="btn btn-primary" id="endreKnapp">Endre</button>
+            <a class="btn btn-dark" href="index.html">Tilbake</a>
+        </div>
+    </div>
+</div>
+
+
+</body>
+<script src="index.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+</html>
