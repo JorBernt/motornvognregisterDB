@@ -46,4 +46,17 @@ const validerKjennetegn = kjennetegn => {
     return true;
 }
 
+const validerPassord = passord => {
+    const regex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+    const ut = $("#passordFeil")
+    if(!regex.test(passord)) {
+        ut.html("Må inneholde minimum 8 bokstaver, minst en bokstav og et tall");
+        ut.css({"color":"red"})
+        return false;
+    }
+    return true;
+}
 
+const validerInnlogging = (navn, passord) => {
+    return navn!=="" && passord !== ""
+}

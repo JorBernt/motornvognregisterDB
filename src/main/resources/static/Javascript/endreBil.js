@@ -36,6 +36,7 @@ const valider = () => {
     const navn = validerNavn($("#navnInput").val());
     const adresse = validerAdresse($("#adresseInput").val())
     const kjennetegn = validerKjennetegn($("#kjennetegnInput").val())
-    return pnr && navn && adresse && kjennetegn;
+    const passord = validerPassord($("#passord").val())
+    return pnr && navn && adresse && kjennetegn && passord;
 }
 

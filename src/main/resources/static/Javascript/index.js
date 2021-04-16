@@ -30,11 +30,15 @@ const oppdaterType = (merke, spesifikk) => {
 const hentAlle = () => {
     $.get("/hentAlle", function(data){
         formaterData(data)
+        $("#innlogget").css({"display":"block"})
+        $("#utlogget").css({"display" : "none"})
     })
         .fail(status=>{
             if(status.status ="404")
                 $("#feilmeldingFelt").html("Du må logge inn for å vise kundene!")
-            $("#feilmeldingFelt").css({"color":"red"})
+                $("#feilmeldingFelt").css({"color":"red"})
+            $("#innlogget").css({"display":"none"})
+            $("#utlogget").css({"display" : "block"})
         })
 }
 
