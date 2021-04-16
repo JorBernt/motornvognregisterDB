@@ -5,24 +5,31 @@ import java.util.List;
 
 public class Kunde {
     private int id;
-    private String personNr, navn, adresse, kjennetegn, bilmerke, biltype;
+    private String personNr, navn, adresse, kjennetegn, bilmerke, biltype, passord;
 
     public Kunde(int id, String personNr, String navn, String adresse, String kjennetegn,
-                 String bilmerke, String biltype) {
+                 String bilmerke, String biltype, String passord) {
         this.personNr = personNr;
         this.navn = navn;
         this.adresse = adresse;
         this.kjennetegn = kjennetegn;
         this.bilmerke = bilmerke;
         this.biltype = biltype;
+        this.passord = passord;
     }
 
     public Kunde() {}
 
+    public String getPassord() {
+        return passord;
+    }
+
+    public void setPassord(String passord) {
+        this.passord = passord;
+    }
 
     public void setId(int id) {
         this.id = id;
-
     }
 
     public int getId() {

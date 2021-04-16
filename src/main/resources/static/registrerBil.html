@@ -19,28 +19,39 @@
                     <label for="personnummerInput">Eiers personnummer</label>
                     <input type="text" class="form-control" id="personnummerInput">
                 </div>
+                <div id="persNrFeil"></div>
                 <div class="form-group">
                     <label for="navnInput">Eiers navn</label>
                     <input type="text" class="form-control" id="navnInput">
                 </div>
+                <div id="navnFeil"></div>
                 <div class="form-group">
                     <label for="adresseInput">Eiers adresse</label>
                     <input type="text" class="form-control" id="adresseInput">
                 </div>
+                <div id="adresseFeil"></div>
                 <div class="form-group">
                     <label for="kjennetegnInput">Eiers Kjennetegn</label>
                     <input type="text" class="form-control" id="kjennetegnInput">
                 </div>
+                <div id="kjennetegnFeil"></div>
                 <div class="form-group">
                     <label for="merke">Merke</label>
-                    <select class="form-select" id="merke" aria-label="merke"onchange="oppdaterType(this.value)">
+                    <select class="form-select" id="merke" aria-label="merke"onchange="oppdaterType(this.value, '')">
                     </select>
                 </div>
+                <div id="merkeFeil"></div>
                 <div class="form-group">
                     <label for="type">Type</label>
                     <select class="form-select" id="type" aria-label="type">
                     </select>
                 </div>
+                <div id="typeFeil"></div>
+                <div class="form-group">
+                    <label for="passord">Passord</label>
+                    <input type="text" class="form-control" id="passord">
+                </div>
+                <div id="passordFeil"></div>
             </form>
             <button class="btn btn-primary" id="registrerKnapp">Registrer</button>
             <a class="btn btn-dark" href="index.html">Tilbake</a>
@@ -50,6 +61,8 @@
 
 
 </body>
-<script src="index.js"></script>
+<script src="Javascript/index.js"></script>
+<script src="Javascript/registrerBil.js"></script>
+<script src="Javascript/inputValdidering.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 </html>
