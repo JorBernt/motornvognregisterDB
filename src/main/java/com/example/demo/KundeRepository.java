@@ -4,10 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Repository;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.security.SecureRandom;
 import java.util.List;
 
 @Repository
@@ -16,11 +18,15 @@ public class KundeRepository {
     @Autowired
     private JdbcTemplate db;
 
+    private BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder(10, new SecureRandom());
+
+
     public boolean lagreKunde(Kunde kunde)  {
+        String pass = passwordEncoder.encode(kunde.getPassord());
         String sql = "INSERT INTO Kunde (personNr, navn, adresse, kjennetegn, bilmerke, biltype, passord) VALUES(?,?,?,?,?,?,?)";
         try {
             db.update(sql, kunde.getPersonNr(),kunde.getNavn(), kunde.getAdresse(),
-                    kunde.getKjennetegn(), kunde.getBilmerke(), kunde.getBiltype(), kunde.getPassord());
+                    kunde.getKjennetegn(), kunde.getBilmerke(), kunde.getBiltype(), pass);
             return true;
         }
         catch (Exception e) {
@@ -67,11 +73,10 @@ public class KundeRepository {
             db.update(sql, kunde.getPersonNr(), kunde.getNavn(),
                     kunde.getAdresse(), kunde.getKjennetegn(),
                     kunde.getBilmerke(), kunde.getBiltype(),
-                    kunde.getPassord(), kunde.getId());
+                    passwordEncoder.encode(kunde.getPassord()), kunde.getId());
             return true;
         }
         catch (Exception e) {
-            System.out.println(e.getMessage());
             return false;
         }
     }
@@ -88,15 +93,8 @@ public class KundeRepository {
     }
 
     public boolean sjekkNavnOgPassord(Kunde kunde) {
-        String sql = "SELECT COUNT(*) FROM Kunde WHERE navn = ? and passord = ?";
-        try {
-            int antall = db.queryForObject(sql, Integer.class, kunde.getNavn(), kunde.getPassord());
-
-            if(antall > 0) return true;
-            return false;
-        }
-        catch (Exception e) {
-            return false;
-        }
+        String sql = "Select passord from Kunde where navn = ?";
+        String pass = db.queryForObject(sql, String.class, kunde.getNavn());
+        return passwordEncoder.matches(kunde.getPassord(), pass);
     }
 }
